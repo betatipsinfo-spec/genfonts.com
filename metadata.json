@@ -1,0 +1,6 @@
+{
+  "name": "GenFonts",
+  "description": "Convert text into 40+ unicode styles, browse hundreds of PicsArt-style text symbols, create custom bio combinations with quick-spacers, design graphic text cards, and copy stylish layouts for social media.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
