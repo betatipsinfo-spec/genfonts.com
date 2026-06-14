@@ -37,7 +37,18 @@ import {
   ShieldCheck,
   FileText,
   X,
-  Send
+  Send,
+  ExternalLink,
+  Wrench,
+  Scissors,
+  Minimize2,
+  Droplet,
+  Camera,
+  Grid,
+  Globe,
+  Laptop,
+  Type,
+  FolderArchive
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -58,6 +69,153 @@ const SYMBOL_CATEGORIES = [
   {
     name: "Brackets",
     symbols: ["【 】", "『 』", "〔 〕", "《 》", "⟨ ⟩", "⟪ ⟫", "〖 〗", "⌠ ⌡"]
+  }
+];
+
+const FREE_TOOLS_RESOURCES = [
+  {
+    id: 1,
+    name: "Favicon Studio",
+    url: "https://faviconexpert.com/",
+    description: "Design, generate, and customize professional cross-platform favicons and high-res app icon packages in seconds.",
+    badge: "Favicon Studio",
+    color: "indigo",
+    icon: Globe
+  },
+  {
+    id: 2,
+    name: "Free Advance Color Palettes",
+    url: "https://flatpalette.com/",
+    description: "Explore ready-to-use premium color schemes, flat gradients, and hex design spectrums for websites.",
+    badge: "Flat Palette",
+    color: "emerald",
+    icon: Palette
+  },
+  {
+    id: 3,
+    name: "CSS Suite & Free Fonts",
+    url: "https://freecss.net/",
+    description: "Access curated free CSS suites, templates, customized typography grids, and styled layouts.",
+    badge: "CSS Suite",
+    color: "violet",
+    icon: FileText
+  },
+  {
+    id: 4,
+    name: "Free Resource UI",
+    url: "https://templatemind.com/",
+    description: "Boost styling with responsive components, layout boilerplates, page assets, and modern boilerplate codes.",
+    badge: "Resource UI",
+    color: "amber",
+    icon: Layers
+  },
+  {
+    id: 5,
+    name: "Image Watermarker",
+    url: "https://templatemind.com/tools/watermark",
+    description: "Quickly place custom styling, signatures, watermark textures, or logos onto photos safe and locally.",
+    badge: "Watermarker",
+    color: "rose",
+    icon: ShieldCheck
+  },
+  {
+    id: 6,
+    name: "Image Converter",
+    url: "https://templatemind.com/tools/image-converter",
+    description: "Fast multi-format converter mapping PNG, WebP, JPEG, SVG, AVIF directly in-browser without loss.",
+    badge: "Converter",
+    color: "cyan",
+    icon: RefreshCw
+  },
+  {
+    id: 7,
+    name: "Image Cropper",
+    url: "https://templatemind.com/tools/image-cropper",
+    description: "Surgically crop, rotate, resize, or flip images with absolute aspect guides and overlay shapes.",
+    badge: "Cropper",
+    color: "blue",
+    icon: Scissors
+  },
+  {
+    id: 8,
+    name: "Image Compressor",
+    url: "https://templatemind.com/tools/image-compressor",
+    description: "Super-efficient image compressor to speed up pages, compressing sizing with pristine rendering.",
+    badge: "Compressor",
+    color: "teal",
+    icon: Minimize2
+  },
+  {
+    id: 9,
+    name: "Word Count",
+    url: "https://templatemind.com/tools/word-counter",
+    description: "Check typography density, complete characters, sentences, spacing counts, and direct copy lengths.",
+    badge: "Word Counter",
+    color: "fuchsia",
+    icon: FileText
+  },
+  {
+    id: 10,
+    name: "Profile Picture Maker",
+    url: "https://templatemind.com/tools/profile-maker",
+    description: "Create eye-catching profile avatars, custom colorful outline glows, safe-zone borders, and banners.",
+    badge: "Profile Maker",
+    color: "pink",
+    icon: Smile
+  },
+  {
+    id: 11,
+    name: "Fancy Font Generator",
+    url: "https://templatemind.com/tools/font-generator",
+    description: "Craft alternative high-density styled text blocks, customizable mathematical shapes, and flair ribbons.",
+    badge: "Font Gen",
+    color: "purple",
+    icon: Sparkles
+  },
+  {
+    id: 12,
+    name: "Free Icon Gallery",
+    url: "https://templatemind.com/tools/icons",
+    description: "Browse rich library sets of scalable vector graphics, clean UI glyph categories, and SVG layout icons.",
+    badge: "Icon Gallery",
+    color: "amber",
+    icon: Grid
+  },
+  {
+    id: 13,
+    name: "Free Color Palettes",
+    url: "https://templatemind.com/tools/color-palettes",
+    description: "Quickly generate harmonious color shades, hex codes, matching tones, and contrast ratios instantly.",
+    badge: "Color Engine",
+    color: "emerald",
+    icon: Palette
+  },
+  {
+    id: 14,
+    name: "CSS Font Stacks",
+    url: "https://templatemind.com/tools/css-fonts",
+    description: "Explore traditional web-safe typeface matrices, custom font stacks, and responsive CSS family sets.",
+    badge: "Font Stacks",
+    color: "indigo",
+    icon: Type
+  },
+  {
+    id: 15,
+    name: "Gradient Generator",
+    url: "https://templatemind.com/tools/gradients",
+    description: "Skins editor for CSS color spectrum gradients, radial mixes, linear transitions, and predesigned scripts.",
+    badge: "Gradients",
+    color: "violet",
+    icon: Droplet
+  },
+  {
+    id: 16,
+    name: "Screen Capture",
+    url: "https://templatemind.com/tools/screenshot",
+    description: "Take high-fidelity web captures of viewport canvas, custom layouts, visible areas, or select windows.",
+    badge: "Screenshots",
+    color: "orange",
+    icon: Camera
   }
 ];
 
@@ -237,6 +395,45 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-3">
+            {/* Animated SVG Border Button styled and scaled for the header */}
+            <div className="scale-[0.5] sm:scale-[0.55] md:scale-[0.6] origin-center -mx-12 -my-6 select-none shrink-0">
+              <a
+                href="#free-tools-section"
+                className="Button block hover:opacity-95 transition-opacity"
+              >
+                <svg className="Button-svg" viewBox="0 0 206 80">
+                  <rect
+                    className="Button-line Button-line--outer"
+                    x="3"
+                    y="3"
+                    width="200"
+                    height="74"
+                    rx="37"
+                    ry="37"
+                    fill="none"
+                    stroke="#7000FF"
+                    strokeWidth="3.5"
+                  />
+                  <rect
+                    className="Button-line Button-line--inner"
+                    x="3"
+                    y="3"
+                    width="200"
+                    height="74"
+                    rx="37"
+                    ry="37"
+                    fill="none"
+                    stroke="#7000FF"
+                    strokeWidth="1.5"
+                    strokeOpacity="0.4"
+                  />
+                </svg>
+                <div className="Button-content uppercase tracking-wider font-extrabold text-[15px] flex items-center gap-2">
+                  <Wrench className="w-5 h-5 text-[#7000FF]" />
+                  <span>Free Tools</span>
+                </div>
+              </a>
+            </div>
             <button
               id="faq-accordion-toggle"
               type="button"
@@ -983,6 +1180,77 @@ export default function App() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* FREE TOOLS & DESIGN RESOURCES SECTION */}
+        <div id="free-tools-section" className="bg-white border border-gray-200 rounded-3xl p-6 md:p-8 mt-8 shadow-xs space-y-8 scroll-mt-24 transition duration-200 hover:border-indigo-150">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-gray-150 pb-5">
+            <div className="space-y-1">
+              <span className="text-[10px] tracking-widest font-extrabold text-indigo-650 bg-indigo-50 border border-indigo-100 uppercase px-2.5 py-1 rounded-full">
+                Curated Design Hub
+              </span>
+              <h2 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
+                Free Tools & Design Resources
+              </h2>
+              <p className="text-xs text-slate-500 max-w-2xl leading-relaxed">
+                Unlock high-fidelity designer palettes, app icon templates, web asset pipelines, and typographic sandboxes crafted for swift social integration.
+              </p>
+            </div>
+            
+            <span className="text-[10px] text-slate-400 font-mono font-bold uppercase select-none shrink-0 bg-slate-50 border border-slate-150 px-3 py-1.5 rounded-lg flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              16 Core Portals Active
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {FREE_TOOLS_RESOURCES.map((resource) => {
+              const IconComponent = resource.icon;
+              return (
+                <a
+                  key={resource.id}
+                  href={resource.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative bg-white border border-slate-150 hover:border-indigo-300 rounded-2xl p-5 transition-all duration-300 flex flex-col justify-between hover:shadow-lg hover:shadow-indigo-500/5 hover:-translate-y-1"
+                >
+                  {/* Card Header */}
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      {/* Unique Monospace Digit ID */}
+                      <span className="text-xs font-black font-mono text-slate-300 group-hover:text-indigo-600 transition duration-300">
+                        {String(resource.id).padStart(2, '0')}
+                      </span>
+                      {/* Dynamic Theme Badges */}
+                      <span className="text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-md tracking-wider border bg-slate-50 border-slate-200 text-slate-600 group-hover:bg-indigo-50 group-hover:text-indigo-700 group-hover:border-indigo-100 transition duration-300">
+                        {resource.badge}
+                      </span>
+                    </div>
+
+                    {/* Left Icon with Brand Colored Canvas Backing */}
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-slate-50 group-hover:bg-indigo-50/50 text-slate-500 group-hover:text-indigo-600 border border-slate-150 group-hover:border-indigo-100 flex items-center justify-center transition duration-300">
+                        <IconComponent className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-[13px] font-black font-sans text-slate-800 group-hover:text-indigo-950 tracking-tight leading-tight select-none">
+                        {resource.name}
+                      </h3>
+                    </div>
+
+                    <p className="text-[11px] text-slate-500 leading-normal line-clamp-3 select-none">
+                      {resource.description}
+                    </p>
+                  </div>
+
+                  {/* Card Bottom: Interactive Footer Trigger */}
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[10px] font-extrabold uppercase text-slate-400 group-hover:text-indigo-600 transition duration-350 select-none">
+                    <span>Visit Tool Portal</span>
+                    <ExternalLink className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition duration-150" />
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
       </main>
       <footer className="bg-gray-950 text-gray-400 text-center py-10 px-4 border-t border-gray-800 mt-16 font-sans">
         <div className="max-w-7xl mx-auto space-y-5">

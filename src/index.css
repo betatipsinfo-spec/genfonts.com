@@ -3,3 +3,90 @@
 html {
   font-size: 120%;
 }
+
+/* Custom Animated SVG Border Button */
+.Button {
+  background: none;
+  padding: 0;
+  border: none;
+  display: block;
+  backface-visibility: hidden;
+  width: 206px;
+  height: 80px;
+  position: relative;
+  color: #7000FF;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: inherit;
+  transition: transform 300ms, color 300ms;
+  cursor: pointer;
+} 
+
+.Button:hover,
+.Button:focus {
+  color: #7000FF;
+  transform: scale(1.05);
+}
+
+.Button:hover .Button-line,
+.Button:focus .Button-line {
+  animation-play-state: paused;
+}
+
+.Button-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%; 
+}
+
+@keyframes outer-dashoffset {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 242.25px 242.25px;
+  }
+  50% {
+    stroke-dasharray: 161.5px 323px;
+  }
+  100% {
+    stroke-dashoffset: 484.5px;
+    stroke-dasharray: 242.25px 242.25px;
+  }
+}
+
+.Button-line--outer {
+  stroke-dasharray: 242.25px 242.25px;
+  stroke-dashoffset: 0;
+  animation: outer-dashoffset 6s infinite linear;
+}
+
+@keyframes inner-dashoffset {
+  0% {
+    stroke-dashoffset: 0;
+    stroke-dasharray: 242.25px 242.25px;
+  }
+  50% {
+    stroke-dasharray: 161.5px 323px;
+  }
+  100% {
+    stroke-dashoffset: -484.5px;
+    stroke-dasharray: 242.25px 242.25px;
+  }
+}
+
+.Button-line--inner {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 242.25px 242.25px;
+  animation: inner-dashoffset 5s infinite linear;
+}
+
+.Button-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
